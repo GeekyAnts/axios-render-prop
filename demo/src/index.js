@@ -1,15 +1,26 @@
-import React, {Component} from 'react'
-import {render} from 'react-dom'
+import React, { Component } from "react";
+import { render } from "react-dom";
 
-import Example from '../../src'
+import Axios from "../../src";
 
 class Demo extends Component {
   render() {
-    return <div>
-      <h1>fetch-render-prop Demo</h1>
-      <Example/>
-    </div>
+    return (
+      <Axios url="https://api.github.com/users/sanketsahusoft">
+        {({ loading, error, response }) => {
+          return (
+            <div>
+              {loading ? (
+                <div>Loading</div>
+              ) : (
+                <div>Name: {response.data.name}</div>
+              )}
+            </div>
+          );
+        }}
+      </Axios>
+    );
   }
 }
 
-render(<Demo/>, document.querySelector('#demo'))
+render(<Demo />, document.querySelector("#demo"));
