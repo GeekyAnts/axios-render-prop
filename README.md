@@ -1,4 +1,4 @@
-# Consume Axios in a Declarative way using JSX
+# Consume Axios in a Declarative way, using JSX
 
 A wrapper React component which uses axios internally to make API calls.
 
